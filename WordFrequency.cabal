@@ -1,0 +1,20 @@
+name:                WordFrequency
+version:             0.1.0.0
+build-type:          Simple
+cabal-version:       >=1.8
+
+author:              Benjamin R. Doerr
+maintainer:          craftsman@bendoerr.me
+
+synopsis:            http://www.scs.stanford.edu/11au-cs240h/labs/lab1.html
+description:         A standalone program that will display (using ASCII art) a histogram of word frequencies from one or more text files (or from stdin).
+homepage:            http://bendoerr.me
+
+license:             MIT
+license-file:        LICENSE
+copyright:           Copyright (c) 2012 Benjamin R. Doerr
+
+executable BenDoerr.WordFrequency
+  main-is:              BenDoerr/WordFrequency/main.hs
+  build-depends:        base ==4.5.*, bytestring ==0.9.*, unordered-containers ==0.2.*, text ==0.11.*, containers ==0.4.*, mtl ==2.1.*
+  hs-source-dirs:       src

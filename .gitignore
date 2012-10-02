@@ -1,6 +1,13 @@
 dist
 cabal-dev
+Setup.hs
 *.o
 *.hi
 *.chi
 *.chs.h
+*.prof
+*.ps
+*.aux
+*.hp
+profile.summary
+tags
