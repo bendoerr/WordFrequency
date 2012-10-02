@@ -3,10 +3,7 @@ module Main where
 import BenDoerr.IO.Common
 import BenDoerr.WordFrequency.Reader
 import BenDoerr.WordFrequency.Count
+import BenDoerr.WordFrequency.Printer
 
 main :: IO ()
-main = ioHandled $ do
-                   spec <- getSpecimen
-                   let (WordCountDetails wordCounts mCount mLength) = countWords spec
-                   putStrLn $ "Max Count: " ++ show mCount
-                   putStrLn $ "Max Length: " ++ show mLength
+main = ioHandled $ getSpecimen >>= printHistogram 80 . countWords
