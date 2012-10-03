@@ -2,7 +2,7 @@
 
 I started learning [Haskell](http://www.haskell.org/haskellwiki/Haskell) at the
 start of the [Summer of 2012](http://book.realworldhaskell.org/), it has been
-[slow](http://book.realworldhaskell.org/read/efficient-file-processing-regular-expressions-and-file-name-matching.html)
+[slow](https://github.com/bendoerr/real-world-haskell)
 as it should be when you are learning a new language. Thanks to that [good old
 news site](http://news.ycombinator.com) I came across a source
 [repository](https://github.com/bos/stanford-cs240h) for a slightly old [CS
