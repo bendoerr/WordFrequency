@@ -11,3 +11,4 @@ Setup.hs
 *.hp
 profile.summary
 tags
+gh-pages
