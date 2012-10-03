@@ -1,4 +1,4 @@
-### What is this?
+## What is this?
 
 I started learning [Haskell](http://www.haskell.org/haskellwiki/Haskell) at the
 start of the [Summer of 2012](http://book.realworldhaskell.org/), it has been
@@ -54,7 +54,7 @@ I very much wanted this to run in near constant memory. And learned a whole lot
 about Haskell's profiling faculties in the process. I did not care about CPU
 performance however.
 
-### How do I run this?
+## How do I run this?
 
 Let's not assume you know anything but you have the [Haskell
 Platform](http://www.haskell.org/platform/) or some
