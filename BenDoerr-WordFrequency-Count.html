@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><title
+    >BenDoerr.WordFrequency.Count</title
+    ><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean"
+     /><script src="haddock-util.js" type="text/javascript"
+    ></script
+    ><script type="text/javascript"
+    >//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_BenDoerr-WordFrequency-Count.html");};
+//]]>
+</script
+    ></head
+  ><body
+  ><div id="package-header"
+    ><ul class="links" id="page-menu"
+      ><li
+	><a href="https:/haddockOpts/github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs"
+	  >Source</a
+	  ></li
+	><li
+	><a href="index.html"
+	  >Contents</a
+	  ></li
+	><li
+	><a href="doc-index.html"
+	  >Index</a
+	  ></li
+	></ul
+      ><p class="caption"
+      >BenDoerr.WordFrequency</p
+      ></div
+    ><div id="content"
+    ><div id="module-header"
+      ><table class="info"
+	><tr
+	  ><th
+	    >Safe Haskell</th
+	    ><td
+	    >Safe-Infered</td
+	    ></tr
+	  ></table
+	><p class="caption"
+	>BenDoerr.WordFrequency.Count</p
+	></div
+      ><div id="table-of-contents"
+      ><p class="caption"
+	>Contents</p
+	><ul
+	><li
+	  ><a href="#g:1"
+	    >Types
+</a
+	    ></li
+	  ><li
+	  ><a href="#g:2"
+	    >Primary Interface
+</a
+	    ></li
+	  ><li
+	  ><a href="#g:3"
+	    >Helpers
+</a
+	    ></li
+	  ></ul
+	></div
+      ><div id="description"
+      ><p class="caption"
+	>Description</p
+	><div class="doc"
+	><p
+	  >Module BenDoerr.WordFrequency.Count
+</p
+	  ><p
+	  >Description
+</p
+	  ></div
+	></div
+      ><div id="synopsis"
+      ><p id="control.syn" class="caption expander" onclick="toggleSection('syn')"
+	>Synopsis</p
+	><ul id="section.syn" class="hide" onclick="toggleSection('syn')"
+	><li class="src short"
+	  ><span class="keyword"
+	    >type</span
+	    > <a href="#t:WordCounts"
+	    >WordCounts</a
+	    > = <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/containers-0.4.2.1/Data-Map.html#t:Map"
+	    >Map</a
+	    > <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    ></li
+	  ><li class="src short"
+	  ><span class="keyword"
+	    >data</span
+	    >  <a href="#t:WordCountDetails"
+	    >WordCountDetails</a
+	    >  = <a href="#v:WordCountDetails"
+	    >WordCountDetails</a
+	    > {<ul class="subs"
+	    ><li
+	      ><a href="#v:wordCounts"
+		>wordCounts</a
+		> :: !<a href="BenDoerr-WordFrequency-Count.html#t:WordCounts"
+		>WordCounts</a
+		></li
+	      ><li
+	      ><a href="#v:maxCount"
+		>maxCount</a
+		> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		>Integer</a
+		></li
+	      ><li
+	      ><a href="#v:minCount"
+		>minCount</a
+		> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		>Integer</a
+		></li
+	      ><li
+	      ><a href="#v:maxLength"
+		>maxLength</a
+		> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		>Integer</a
+		></li
+	      ></ul
+	    >}</li
+	  ><li class="src short"
+	  ><a href="#v:countWords"
+	    >countWords</a
+	    > :: [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >] -&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:addWordOccurrence"
+	    >addWordOccurrence</a
+	    > :: <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:wordCountsToList"
+	    >wordCountsToList</a
+	    > :: <a href="BenDoerr-WordFrequency-Count.html#t:WordCounts"
+	    >WordCounts</a
+	    > -&gt; [(<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >, <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    >)]</li
+	  ></ul
+	></div
+      ><div id="interface"
+      ><h1 id="g:1"
+	>Types
+</h1
+	><div class="top"
+	><p class="src"
+	  ><span class="keyword"
+	    >type</span
+	    > <a name="t:WordCounts" class="def"
+	    >WordCounts</a
+	    > = <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/containers-0.4.2.1/Data-Map.html#t:Map"
+	    >Map</a
+	    > <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs#L23" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Simple type alais for our map of words and their counts.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><span class="keyword"
+	    >data</span
+	    >  <a name="t:WordCountDetails" class="def"
+	    >WordCountDetails</a
+	    >  <a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs#L32" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >The data type that will hold details about the counted words, including
+     the maximum count and maximum length of a word. These details will be
+     useful when displaying.
+</p
+	    ><p
+	    >The details have been made to evaulate strictly to avoid a buildup of
+     thunks.
+</p
+	    ></div
+	  ><div class="subs constructors"
+	  ><p class="caption"
+	    >Constructors</p
+	    ><table
+	    ><tr
+	      ><td class="src"
+		><a name="v:WordCountDetails" class="def"
+		  >WordCountDetails</a
+		  ></td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ><tr
+	      ><td colspan="2"
+		><div class="subs fields"
+		  ><p class="caption"
+		    >Fields</p
+		    ><dl
+		    ><dt class="src"
+		      ><a name="v:wordCounts" class="def"
+			>wordCounts</a
+			> :: !<a href="BenDoerr-WordFrequency-Count.html#t:WordCounts"
+			>WordCounts</a
+			></dt
+		      ><dd class="doc"
+		      ><p
+			>The current state of all counted words. Strict.
+</p
+			></dd
+		      ><dt class="src"
+		      ><a name="v:maxCount" class="def"
+			>maxCount</a
+			> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+			>Integer</a
+			></dt
+		      ><dd class="doc"
+		      ><p
+			>The current maxiumum count. Strict.
+</p
+			></dd
+		      ><dt class="src"
+		      ><a name="v:minCount" class="def"
+			>minCount</a
+			> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+			>Integer</a
+			></dt
+		      ><dd class="doc"
+		      ><p
+			>The current miniumum count. Strict.
+</p
+			></dd
+		      ><dt class="src"
+		      ><a name="v:maxLength" class="def"
+			>maxLength</a
+			> :: !<a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+			>Integer</a
+			></dt
+		      ><dd class="doc"
+		      ><p
+			>The current maximum word length. Strict.
+</p
+			></dd
+		      ></dl
+		    ><div class="clear"
+		    ></div
+		    ></div
+		  ></td
+		></tr
+	      ></table
+	    ></div
+	  ><div class="subs instances"
+	  ><p id="control.i:WordCountDetails" class="caption collapser" onclick="toggleSection('i:WordCountDetails')"
+	    >Instances</p
+	    ><div id="section.i:WordCountDetails" class="show"
+	    ><table
+	      ><tr
+		><td class="src"
+		  ><a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Text-Show.html#t:Show"
+		    >Show</a
+		    > <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		    >WordCountDetails</a
+		    ></td
+		  ><td class="doc empty"
+		  >&nbsp;</td
+		  ></tr
+		></table
+	      ></div
+	    ></div
+	  ></div
+	><h1 id="g:2"
+	>Primary Interface
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:countWords" class="def"
+	    >countWords</a
+	    > :: [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >] -&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs#L46" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Builds up <code
+	      ><a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		>WordCountDetails</a
+		></code
+	      > for every word. I think there will be a lot
+     for the GC to do here since we build a new WordCountDetails on every word.
+</p
+	    ></div
+	  ></div
+	><h1 id="g:3"
+	>Helpers
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:addWordOccurrence" class="def"
+	    >addWordOccurrence</a
+	    > :: <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs#L54" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >The beef. Gets a new <code
+	      ><a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		>WordCountDetails</a
+		></code
+	      >.
+</p
+	    ><p
+	    >Using strict version of insertWith <code
+	      ><a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/containers-0.4.2.1/Data-Map.html#v:insertWith-39-"
+		>insertWith'</a
+		></code
+	      > to avoid thunks
+     (slightly better memory footprint).
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:wordCountsToList" class="def"
+	    >wordCountsToList</a
+	    > :: <a href="BenDoerr-WordFrequency-Count.html#t:WordCounts"
+	    >WordCounts</a
+	    > -&gt; [(<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >, <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    >)]<a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Count.hs#L68" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Transform the <code
+	      ><a href="BenDoerr-WordFrequency-Count.html#t:WordCounts"
+		>WordCounts</a
+		></code
+	      > into a List of (<code
+	      ><a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+		>Word</a
+		></code
+	      >, <code
+	      ><a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		>Integer</a
+		></code
+	      >)
+</p
+	    ><p
+	    >The list will be orded descending by the count.
+</p
+	    ></div
+	  ></div
+	></div
+      ></div
+    ><div id="footer"
+    ><p
+      >Produced by <a href="http://www.haskell.org/haddock/"
+	>Haddock</a
+	> version 2.10.0</p
+      ></div
+    ></body
+  ></html
+>

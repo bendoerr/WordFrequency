@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><title
+    >BenDoerr.WordFrequency.Printer</title
+    ><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean"
+     /><script src="haddock-util.js" type="text/javascript"
+    ></script
+    ><script type="text/javascript"
+    >//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_BenDoerr-WordFrequency-Printer.html");};
+//]]>
+</script
+    ></head
+  ><body
+  ><div id="package-header"
+    ><ul class="links" id="page-menu"
+      ><li
+	><a href="https:/haddockOpts/github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Printer.hs"
+	  >Source</a
+	  ></li
+	><li
+	><a href="index.html"
+	  >Contents</a
+	  ></li
+	><li
+	><a href="doc-index.html"
+	  >Index</a
+	  ></li
+	></ul
+      ><p class="caption"
+      >BenDoerr.WordFrequency</p
+      ></div
+    ><div id="content"
+    ><div id="module-header"
+      ><table class="info"
+	><tr
+	  ><th
+	    >Safe Haskell</th
+	    ><td
+	    >Safe-Infered</td
+	    ></tr
+	  ></table
+	><p class="caption"
+	>BenDoerr.WordFrequency.Printer</p
+	></div
+      ><div id="table-of-contents"
+      ><p class="caption"
+	>Contents</p
+	><ul
+	><li
+	  ><a href="#g:1"
+	    >Print a Histogram
+</a
+	    ></li
+	  ><li
+	  ><a href="#g:2"
+	    >Helpers
+</a
+	    ></li
+	  ></ul
+	></div
+      ><div id="description"
+      ><p class="caption"
+	>Description</p
+	><div class="doc"
+	><p
+	  >Prints a histogram of the word counts.
+</p
+	  ><p
+	  >TODO: Refactor stats into their own data type.
+</p
+	  ></div
+	></div
+      ><div id="synopsis"
+      ><p id="control.syn" class="caption expander" onclick="toggleSection('syn')"
+	>Synopsis</p
+	><ul id="section.syn" class="hide" onclick="toggleSection('syn')"
+	><li class="src short"
+	  ><a href="#v:printHistogram"
+	    >printHistogram</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+	    >WordCountDetails</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:printWord"
+	    >printWord</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; (<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >, <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    >) -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:findWidth"
+	    >findWidth</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integral"
+	    >Integral</a
+	    > b =&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; b</li
+	  ><li class="src short"
+	  ><a href="#v:printHeader"
+	    >printHeader</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ></li
+	  ></ul
+	></div
+      ><div id="interface"
+      ><h1 id="g:1"
+	>Print a Histogram
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:printHistogram" class="def"
+	    >printHistogram</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Printer.hs#L25" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="subs arguments"
+	  ><p class="caption"
+	    >Arguments</p
+	    ><table
+	    ><tr
+	      ><td class="src"
+		>:: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Total width of the histogram.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		  >WordCountDetails</a
+		  ></td
+		><td class="doc"
+		><p
+		  ><code
+		    ><a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		      >WordCountDetails</a
+		      ></code
+		    > to print.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+		  >IO</a
+		  > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+		  >()</a
+		  ></td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ></table
+	    ></div
+	  ><div class="doc"
+	  ><p
+	    >Main function to print a histogram of the <code
+	      ><a href="BenDoerr-WordFrequency-Count.html#t:WordCountDetails"
+		>WordCountDetails</a
+		></code
+	      >.
+     This will also print a header out for the histogram with the min and max
+     counts as scale.
+</p
+	    ></div
+	  ></div
+	><h1 id="g:2"
+	>Helpers
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:printWord" class="def"
+	    >printWord</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Printer.hs#L37" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="subs arguments"
+	  ><p class="caption"
+	    >Arguments</p
+	    ><table
+	    ><tr
+	      ><td class="src"
+		>:: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Total width of the histogram.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Highest count. Max Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Lowest count. Min Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Length of max word.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; (<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+		  >Word</a
+		  >, <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  >)</td
+		><td class="doc"
+		><p
+		  >The word and it's count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+		  >IO</a
+		  > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+		  >()</a
+		  ></td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ></table
+	    ></div
+	  ><div class="doc"
+	  ><p
+	    >Print the label and bar for a single word.
+</p
+	    ><p
+	    >The format is: <code
+	      >  label : ######### </code
+	      >
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:findWidth" class="def"
+	    >findWidth</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Printer.hs#L53" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="subs arguments"
+	  ><p class="caption"
+	    >Arguments</p
+	    ><table
+	    ><tr
+	      ><td class="src"
+		>:: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integral"
+		  >Integral</a
+		  > b</td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>=&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Margin used when calculating size that can be used.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Total width of the histogram.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Max Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Min Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >The current count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; b</td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ></table
+	    ></div
+	  ><div class="doc"
+	  ><p
+	    >Find the width to use for the bar given the max size of the histogram, the
+     max size of the label and any margin between the label and bar.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:printHeader" class="def"
+	    >printHeader</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Printer.hs#L67" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="subs arguments"
+	  ><p class="caption"
+	    >Arguments</p
+	    ><table
+	    ><tr
+	      ><td class="src"
+		>:: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Total width of the histogram.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Max Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Min Count.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+		  >Integer</a
+		  ></td
+		><td class="doc"
+		><p
+		  >Length of max word.
+</p
+		  ></td
+		></tr
+	      ><tr
+	      ><td class="src"
+		>-&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+		  >IO</a
+		  > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+		  >()</a
+		  ></td
+		><td class="doc empty"
+		>&nbsp;</td
+		></tr
+	      ></table
+	    ></div
+	  ><div class="doc"
+	  ><p
+	    >Print a nice header with some bold borders and show the minimum count and
+     maximum count for scale and perspective.
+</p
+	    ></div
+	  ></div
+	></div
+      ></div
+    ><div id="footer"
+    ><p
+      >Produced by <a href="http://www.haskell.org/haddock/"
+	>Haddock</a
+	> version 2.10.0</p
+      ></div
+    ></body
+  ></html
+>

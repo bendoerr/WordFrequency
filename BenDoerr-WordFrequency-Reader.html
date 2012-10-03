@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><title
+    >BenDoerr.WordFrequency.Reader</title
+    ><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean"
+     /><script src="haddock-util.js" type="text/javascript"
+    ></script
+    ><script type="text/javascript"
+    >//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_BenDoerr-WordFrequency-Reader.html");};
+//]]>
+</script
+    ></head
+  ><body
+  ><div id="package-header"
+    ><ul class="links" id="page-menu"
+      ><li
+	><a href="https:/haddockOpts/github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs"
+	  >Source</a
+	  ></li
+	><li
+	><a href="index.html"
+	  >Contents</a
+	  ></li
+	><li
+	><a href="doc-index.html"
+	  >Index</a
+	  ></li
+	></ul
+      ><p class="caption"
+      >BenDoerr.WordFrequency</p
+      ></div
+    ><div id="content"
+    ><div id="module-header"
+      ><table class="info"
+	><tr
+	  ><th
+	    >Safe Haskell</th
+	    ><td
+	    >Safe-Infered</td
+	    ></tr
+	  ></table
+	><p class="caption"
+	>BenDoerr.WordFrequency.Reader</p
+	></div
+      ><div id="table-of-contents"
+      ><p class="caption"
+	>Contents</p
+	><ul
+	><li
+	  ><a href="#g:1"
+	    >Primary Interface
+</a
+	    ></li
+	  ><li
+	  ><a href="#g:2"
+	    >Building the Word List
+</a
+	    ></li
+	  ><li
+	  ><a href="#g:3"
+	    >Helpers
+</a
+	    ></li
+	  ></ul
+	></div
+      ><div id="description"
+      ><p class="caption"
+	>Description</p
+	><div class="doc"
+	><p
+	  >Module BenDoerr.WordFrequency.Reader
+</p
+	  ><p
+	  >Description
+</p
+	  ></div
+	></div
+      ><div id="synopsis"
+      ><p id="control.syn" class="caption expander" onclick="toggleSection('syn')"
+	>Synopsis</p
+	><ul id="section.syn" class="hide" onclick="toggleSection('syn')"
+	><li class="src short"
+	  ><a href="#v:getSpecimen"
+	    >getSpecimen</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >]</li
+	  ><li class="src short"
+	  ><span class="keyword"
+	    >type</span
+	    > <a href="#t:Word"
+	    >Word</a
+	    > = <a href="/Library/Haskell/ghc-7.4.1/lib/text-0.11.2.0/doc/html/Data-Text-Lazy-Internal.html#t:Text"
+	    >Text</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:cleanWords"
+	    >cleanWords</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/bytestring-0.9.2.1/Data-ByteString-Lazy.html#t:ByteString"
+	    >ByteString</a
+	    > -&gt; [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >]</li
+	  ><li class="src short"
+	  ><a href="#v:normalizeWord"
+	    >normalizeWord</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:toString"
+	    >toString</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Data-String.html#t:String"
+	    >String</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:wordLength"
+	    >wordLength</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:printSpecimen"
+	    >printSpecimen</a
+	    > :: [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >] -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ></li
+	  ><li class="src short"
+	  ><a href="#v:printSpecimen-39-"
+	    >printSpecimen'</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ></li
+	  ></ul
+	></div
+      ><div id="interface"
+      ><h1 id="g:1"
+	>Primary Interface
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:getSpecimen" class="def"
+	    >getSpecimen</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >]<a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L33" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >The primary function that takes input from a list of files or if no files
+     are specified then from stdin. Breaks the text in those files into their
+     word. Words are normalized in lower case and have surrounding punctuation
+     removed.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><span class="keyword"
+	    >type</span
+	    > <a name="t:Word" class="def"
+	    >Word</a
+	    > = <a href="/Library/Haskell/ghc-7.4.1/lib/text-0.11.2.0/doc/html/Data-Text-Lazy-Internal.html#t:Text"
+	    >Text</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L26" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Type alias of Text for a type that represents a word from the specimen.
+</p
+	    ></div
+	  ></div
+	><h1 id="g:2"
+	>Building the Word List
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:cleanWords" class="def"
+	    >cleanWords</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/bytestring-0.9.2.1/Data-ByteString-Lazy.html#t:ByteString"
+	    >ByteString</a
+	    > -&gt; [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >]<a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L39" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Read the <code
+	      ><a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/bytestring-0.9.2.1/Data-ByteString-Lazy.html#t:ByteString"
+		>ByteString</a
+		></code
+	      > as UTF-8, separate it into words, lowercase the
+     words, drop punctuation around the word, and return only non null words.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:normalizeWord" class="def"
+	    >normalizeWord</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L46" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Converts the word to lowercase and removes surrounding punctuation.
+</p
+	    ><ul
+	    ><li
+	      > Punctuation is considered <code
+		> *,.-!?&lt;&gt;/&quot;;:][}{)(@#$%^&amp;`~-_=+ </code
+		>
+</li
+	      ></ul
+	    ></div
+	  ></div
+	><h1 id="g:3"
+	>Helpers
+</h1
+	><div class="top"
+	><p class="src"
+	  ><a name="v:toString" class="def"
+	    >toString</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Data-String.html#t:String"
+	    >String</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L51" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Unpack a <code
+	      ><a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+		>Word</a
+		></code
+	      > to a <code
+	      ><a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Data-String.html#t:String"
+		>String</a
+		></code
+	      >.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:wordLength" class="def"
+	    >wordLength</a
+	    > :: <a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    > -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/Prelude.html#t:Integer"
+	    >Integer</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L55" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >The length of a particular word.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:printSpecimen" class="def"
+	    >printSpecimen</a
+	    > :: [<a href="BenDoerr-WordFrequency-Reader.html#t:Word"
+	    >Word</a
+	    >] -&gt; <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L59" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Print a word list.
+</p
+	    ></div
+	  ></div
+	><div class="top"
+	><p class="src"
+	  ><a name="v:printSpecimen-39-" class="def"
+	    >printSpecimen'</a
+	    > :: <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/base-4.5.0.0/System-IO.html#t:IO"
+	    >IO</a
+	    > <a href="/Library/Frameworks/GHC.framework/Versions/7.4.1-x86_64/usr/share/doc/ghc/html/libraries/ghc-prim-0.2.0.0/GHC-Tuple.html#t:-40--41-"
+	    >()</a
+	    ><a href="https://github.com/bendoerr/WordFrequency/blob/master/src/BenDoerr/WordFrequency/Reader.hs#L63" class="link"
+	    >Source</a
+	    ></p
+	  ><div class="doc"
+	  ><p
+	    >Print a word list that is the result of <code
+	      ><a href="BenDoerr-WordFrequency-Reader.html#v:getSpecimen"
+		>getSpecimen</a
+		></code
+	      >
+</p
+	    ></div
+	  ></div
+	></div
+      ></div
+    ><div id="footer"
+    ><p
+      >Produced by <a href="http://www.haskell.org/haddock/"
+	>Haddock</a
+	> version 2.10.0</p
+      ></div
+    ></body
+  ></html
+>
