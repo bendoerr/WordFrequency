@@ -118,3 +118,79 @@ work.
          capicola : #####
             shank : ###
     ```
+
+## How can I believe you that it runs in "kinda constant"® memory?
+
+1. Reconfigure Cabal for profiling and rebuild.
+
+    ```sh
+    $ cabal configure -p --enable-executable-profiling
+    Resolving dependencies...
+    Configuring WordFrequency-0.1.0.0...
+
+    $ cabal build
+    Building WordFrequency-0.1.0.0...
+    Preprocessing executable 'BenDoerr.WordFrequency' for WordFrequency-0.1.0.0...
+    [1 of 5] Compiling BenDoerr.IO.Common ( src/BenDoerr/IO/Common.hs, dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency-tmp/BenDoerr/IO/Common.p_o )
+    [2 of 5] Compiling BenDoerr.WordFrequency.Reader ( src/BenDoerr/WordFrequency/Reader.hs, dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency-tmp/BenDoerr/WordFrequency/Reader.p_o )
+    [3 of 5] Compiling BenDoerr.WordFrequency.Count ( src/BenDoerr/WordFrequency/Count.hs, dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency-tmp/BenDoerr/WordFrequency/Count.p_o )
+    [4 of 5] Compiling BenDoerr.WordFrequency.Printer ( src/BenDoerr/WordFrequency/Printer.hs, dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency-tmp/BenDoerr/WordFrequency/Printer.p_o )
+    [5 of 5] Compiling Main             ( src/BenDoerr/WordFrequency/main.hs, dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency-tmp/Main.p_o )
+    Linking dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency ...
+    ```
+    *Notice the `.p_o` extensions?*
+
+2. Run the code with some profiling options and a "kinda crazy"® amount of text.
+
+    ```sh
+    $ dist/build/BenDoerr.WordFrequency/BenDoerr.WordFrequency test/test1.txt test/test1.txt test/test1.txt test/test1.txt +RTS -p -hc -s
+    (.. histogram here ..)
+       3,841,496,336 bytes allocated in the heap
+         339,507,328 bytes copied during GC
+             262,144 bytes maximum residency (194 sample(s))
+              50,128 bytes maximum slop
+                   2 MB total memory in use (0 MB lost due to fragmentation)
+
+                                        Tot time (elapsed)  Avg pause  Max pause
+      Gen  0      7271 colls,     0 par    0.28s    0.29s     0.0000s    0.0001s
+      Gen  1       194 colls,     0 par    0.03s    0.03s     0.0002s    0.0004s
+
+      INIT    time    0.00s  (  0.00s elapsed)
+      MUT     time    4.02s  (  4.06s elapsed)
+      GC      time    0.31s  (  0.32s elapsed)
+      RP      time    0.00s  (  0.00s elapsed)
+      PROF    time    0.00s  (  0.00s elapsed)
+      EXIT    time    0.00s  (  0.00s elapsed)
+      Total   time    4.34s  (  4.39s elapsed)
+
+      %GC     time       7.1%  (7.3% elapsed)
+
+      Alloc rate    954,930,740 bytes per MUT second
+
+      Productivity  92.8% of total user, 91.7% of total elapsed
+    ```
+
+    WOW so lets take a look at this. The primary number I have been keeping an
+    eye on is the *bytes maximum residency*. This number will go up and down
+    slightly as you add and remove file handles. That is the "kinda constant"®
+    part, since I open all the file handles at the start and let Haskell close
+    them as I go as the program runs the footprint becomes smaller.
+
+    Looking at the number of *bytes allocated in the heap* I am obviously not
+    very effiecent here. However, I know some fusion happens with `Data.Text`
+    when optimizations are turned on but I haven't tried that yet.
+
+3. Lets do one more thing and create a graph of our memory usage.
+
+    ```sh
+    $ hp2ps -c BenDoerr.WordFrequency.hp
+
+    $ open BenDoerr.WordFrequency.ps
+    ```
+
+    Again we see here how as the program runs and files are consumed a little
+    memory is made free. I am really impressed by how easily, with some thought
+    about how I was writing the code, I was able to write a program that didn't
+    blow up on memory. Not something I would do in Java very easily.
+
+
